@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block extra_styles %}
+      <link rel="stylesheet" href="{% static 'css/home.css' %}">
+      <link rel="stylesheet" href="{% static 'css/productos.css' %}">
+    {% endblock %}
+</head>
+
+<body>
+    <section class="container top-products">
+        <h1 class="heading-1">Agregar Productos</h1>
+
+        <!-- COMIDAS -->
+        <div class="container-products comida">
+            {% for comida in comidas %}
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="{{ comida.imagen.url }}" alt="" />
+                    </div>
+                    <div class="content-card-product">
+                        <h3>{{ comida.nombre }}</h3>
+                        <div class="price">{{ comida.precio }}</div>
+                        <div class="buttons">
+                            <button><a href="{% url 'editar_comida' id_comida=comida.id %}">Editar</a></button>
+                            <button><a href="{% url 'eliminar_comida' id_comida=comida.id %}">Eliminar</a></button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- BEBIDAS -->
+    <section class="container top-products bebida">
+        <div class="container-products">
+            {% for bebida in bebidas %}
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="{{ bebida.imagen.url }}" alt="" />
+                    </div>
+                    <div class="content-card-product">
+                        <h3>{{ bebida.nombre }}</h3>
+                        <div class="price">{{ bebida.precio }}</div>
+                        <div class="buttons">
+                            <button><a href="{% url 'editar_bebida' id_bebida=bebida.id %}">Editar</a></button>
+                            <button><a href="{% url 'eliminar_bebida' id_bebida=bebida.id %}">Eliminar</a></button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <section class="formularios-agreggar">
+            <!-- FORMULARIO PARA AGREGAR COMIDA -->
+            <div class="formulario">
+                <h2>AGREGAR COMIDA</h2>
+                <form action="{% url 'agregar_comida' %}" method="POST" enctype="multipart/form-data">  
+                    {% csrf_token %}
+                    {{ error }}
+                    {{ mensaje }}
+                    {{ form_comida.as_p }}
+                    <button>Guardar</button>
+                </form>
+            </div>
+
+            <!-- FORMULARIO PARA AGREGAR BEBIDA -->
+            <div class="formulario">
+                <h2>AGREGAR BEBIDA</h2>
+                <form action="{% url 'agregar_bebida' %}" method="POST" enctype="multipart/form-data">  
+                    {% csrf_token %}
+                    {{ error }}
+                    {{ mensaje }}
+                    {{ form_bebida.as_p }}
+                    <button>Guardar</button>
+                </form>
+            </div>
+        </section>
+    </section>
+</body>
+</html>

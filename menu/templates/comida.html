@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comida</title>
+</head>
+<body>
+    <h1>COMIDA</h1>
+
+    <div class="contenedor">
+            {% for comida in comidas %}
+            <div class="tarjeta-global">
+                <img src="{{ comida.imagen.url }}" alt="">
+                <h3>{{ comida.nombre }}</h3>
+                <h3>{{ comida.precio }}</h3>
+            </div>
+            {% endfor %}
+    </div>
+</body>
+</html>
