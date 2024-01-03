@@ -1,0 +1,228 @@
+:root {
+    --primary-color: #c7a17a;
+    --background-color: #f9f5f0;
+    --dark-color: #151515;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--dark-color);
+    padding: 2rem;
+
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: var(--primary-color);
+}
+
+.container-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: space-around; /* Alineación horizontal */
+}
+
+.card-product {
+    background-color: var(--primary-color);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 300px; /* Ancho fijo para la tarjeta */
+    height: 350px; /* Altura fija para la tarjeta */
+    margin: 0.75rem;
+    /* flex: 1 1 calc(25% - 20px); Distribuir en 4 columnas con margen */
+    margin-bottom: 20px; 
+    box-sizing: border-box;
+}
+
+.container-img {
+    position: relative;
+}
+
+.container-img img {
+    width: 100%;
+    height: 200px; /* Puedes ajustar la altura según tus preferencias */
+    object-fit: cover; /* Ajusta el comportamiento de la imagen */
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 0;
+    right: -3rem;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.button-group span {
+    border: 1px solid var(--primary-color);
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.button-group span:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.button-group span i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.button-group span:hover i {
+    color: #fff;
+}
+
+.card-product:hover .button-group {
+    z-index: 0;
+    right: -1rem;
+}
+
+.content-card-product {
+    display: block;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, min-content);
+    row-gap: 1rem;
+}
+
+.content-card-product button {
+    background-color: #ba7d3e;
+    color: #fff;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem; /* Ajusta el espacio entre el precio y los botones */
+    text-decoration: none; /* Quitar subrayado */
+    display: inline-block;
+    transition: background-color 0.3s ease; /* Transición para suavizar el cambio de color */
+}
+
+.content-card-product button:hover {
+    background-color: #975f2d;
+    color: #fff;
+    text-decoration: none;
+}
+
+.content-card-product button:active {
+    background-color: #ba7d3e; 
+    text-decoration: none;
+    color: #fff;
+}
+
+.content-card-product h3 {
+    grid-row: 1/2;
+    grid-column: 1/-1;
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    color: var(--dark-color);
+    margin-top: 1rem;
+}
+
+.content-card-product h3:hover {
+    color: #ba7d3e;
+}
+
+.price {
+    justify-self: end;
+    align-self: center;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.price span {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-decoration: line-through;
+    color: #777;
+    margin-left: 0.5rem;
+}
+
+.formulario {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    width: 48%; /* Ajusta el ancho según tus preferencias */
+    display: inline-block;
+    margin-left: 2rem;
+}
+
+form {
+    display: grid;
+    gap: 1rem;
+
+}
+
+label {
+    font-size: 1.6rem;
+    color: var(--dark-color);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+
+button:hover {
+    background-color: #975f2d;
+    text-decoration: none;
+}
+
+button:active{
+    color: #fff;
+    text-decoration: none;
+}
+
+.formularios-agreggar{
+    display: flex;
+}
